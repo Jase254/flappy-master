@@ -97,5 +97,10 @@ celerybeat-schedule
 #dsstore
 .DS_Store
 
+
+# virtualenv
+virtualenv/lib
+
 #Windowsvenv
 windowsvenv/lib
+
