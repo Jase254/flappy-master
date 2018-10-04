@@ -40,7 +40,7 @@ def save_pool():
     print("Saved current pool!")
 
 
-# [TODO]
+
 def showGameOverScreen(crashInfo):
     # Perform genetic updates here
 
@@ -82,6 +82,7 @@ def showGameOverScreen(crashInfo):
                 idx2 = j
                 break
 
+        # [TODO]
         # Perform Crossover & Mutation
         new_weights1 = model_crossover(idx1, idx2)
         updated_weights1 = model_mutate(new_weights1[0])
@@ -110,7 +111,7 @@ def model_crossover(parent1, parent2):
     weightsnew1 = weights1
     weightsnew2 = weights2
 
-    gene = random.randint(0, 5)
+    gene = 0
 
     weightsnew1[gene] = weights2[gene]
     weightsnew2[gene] = weights1[gene]
