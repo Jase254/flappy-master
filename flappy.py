@@ -82,7 +82,7 @@ def showGameOverScreen(crashInfo):
                 idx2 = j
                 break
 
-        # [TODO]
+        # [TODO5]
         # Perform Crossover & Mutation
         new_weights1 = model_crossover(idx1, idx2)
         updated_weights1 = model_mutate(new_weights1[0])
@@ -103,7 +103,7 @@ def showGameOverScreen(crashInfo):
     return
 
 
-# [TODO]
+# [TODO3]
 def model_crossover(parent1, parent2):
     global current_pool
     weights1 = current_pool[parent1].get_weights()
@@ -118,13 +118,13 @@ def model_crossover(parent1, parent2):
     return np.asarray([weightsnew1, weightsnew2])
 
 
-# [TODO]
+# [TODO4]
 def model_mutate(weights):
-    for xi in range(len(weights)):
-        for yi in range(len(weights[xi])):
+    for x in range(len(weights)):
+        for y in range(len(weights[x])):
             if random.uniform(0, 1) > 0.85:
                 change = random.uniform(-0.5, 0.5)
-                weights[xi][yi] += change
+                weights[x][y] += change
     return weights
 
 
@@ -135,7 +135,7 @@ def predict_action(height, dist, pipe_height, model_num):
     dist = dist / 450 - 0.5 # Max pipe distance from player will be 450
     pipe_height = min(SCREENHEIGHT, pipe_height) / SCREENHEIGHT - 0.5
 
-    # [TODO]
+    # [TODO2]
     # Feed in features to the neural net
     neural_input = np.asarray([height, dist, pipe_height])
 
@@ -152,7 +152,7 @@ def predict_action(height, dist, pipe_height, model_num):
 
 # Initialize all models
 for i in range(total_models):
-    # [TODO]
+    # [TODO1]
     model = Sequential()
     model.add(Dense(3, input_shape=(3,)))
     model.add(Activation('relu'))
